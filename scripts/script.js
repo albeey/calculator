@@ -48,8 +48,8 @@ digitBtn.forEach(button => {
 // Select Operator
 // when an operator button is pressed its value is saved in selectedOperator
 // if an operator button is pressed and both savedValue and currentValueOnDisplay 
-// have values assigned to them returnOperationResult function will run, 
-// the result will go to currentValueOnDisplay and savedValue will be emtpied out
+// have values assigned to them returnOperationResult function will run, the
+// result will go to currentValueOnDisplay and savedValue will be emtpied out
 const operatorBtn = document.querySelectorAll(".operator-btn");
 
 let selectedOperator = "";

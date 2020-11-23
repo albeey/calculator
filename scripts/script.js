@@ -83,7 +83,7 @@ equalsBtn.addEventListener("click", () => {
     updateDisplay(currentValueOnDisplay);
   } else {
       currentValueOnDisplay = returnOperationResult();
-      if (currentValueOnDisplay === "NaN") {
+      if (currentValueOnDisplay === "NaN" || currentValueOnDisplay === "Infinity") {
         currentValueOnDisplay = "lol no";
         updateDisplay(currentValueOnDisplay);
         setTimeout(() => clear(), 1000);

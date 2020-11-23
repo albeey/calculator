@@ -126,3 +126,42 @@ decimalBtn.addEventListener("click", () => {
                                         currentValueOnDisplay += ".";
   updateDisplay(currentValueOnDisplay);
 });
+
+// Color Modes
+const modeBtn = document.querySelectorAll(".mode-btn");
+const root = document.documentElement;
+
+modeBtn.forEach(button => {
+  button.addEventListener("click", () => {
+    if (button.value === "dark" || button.value === "blue" || button.value === "sunset") {
+      root.style.setProperty("--display-and-keys-color", "white");
+    }
+    if (button.value === "light") {
+      root.style.setProperty("--display-and-keys-color", "black");
+      root.style.setProperty("--calc-bg-color", "white");
+      root.style.setProperty("--calc-gradient", "none");
+    }
+    if (button.value === "dark") {
+      root.style.setProperty("--calc-bg-color", "#191919");
+      root.style.setProperty("--calc-gradient", "none");
+    }
+    if (button.value === "dark" || button.value === "light") {
+      root.style.setProperty("--separator-color", "#FE7F57");
+      root.style.setProperty("--equals-btn-color", "#FE7F57");
+    }
+    if (button.value === "blue" || button.value === "sunset") {
+      root.style.setProperty("--equals-btn-color", "white");
+    }
+    if (button.value === "blue") {
+      root.style.setProperty("--calc-gradient", "linear-gradient(201deg, rgba(35,34,254,1) 30%, rgba(122,244,213,1) 82%)");
+      root.style.setProperty("--calc-bg-color", "rgba(35,34,254,1)");
+      root.style.setProperty("--separator-color", "#70DFD9");
+    }
+    if (button.value === "sunset") {
+      root.style.setProperty("--calc-gradient", "linear-gradient(180deg, rgba(83,51,216,1) 3%, rgba(135,74,177,1) 59%, rgba(250,125,90,1) 88%)");
+      root.style.setProperty("--calc-bg-color", "rgba(83,51,216,1)");
+      root.style.setProperty("--separator-color", "#DA6F72");
+    }
+  });
+});
+

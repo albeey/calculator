@@ -5,6 +5,8 @@
 
 :root {
   --calc-border-radious: 10px;
+  --orange-accent-color: #FE7F57;
+  --brown-bg-color: rgba(25, 25, 25, 1);
 }
 
 body {
@@ -16,44 +18,74 @@ body {
 }
 
 #calculator {
-  background-color: #fff;
   height: auto;
   border-radius: var(--calc-border-radious);
+  font-family: 'Yantramanav', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .display {
-  text-align: end;
-  padding: 40px 10px;
+  padding: 40px 15px;
+  font-size: 48px;
+  font-weight: 500;
+  color: white;
+  align-self: stretch;
+  background-color: var(--brown-bg-color);
+  text-align: right;
+  border-radius: var(--calc-border-radious) var(--calc-border-radious) 0 0;
+}
+
+.separator {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  background-color: var(--brown-bg-color);
+}
+
+hr {
+  border: 1px solid var(--orange-accent-color);
+  width: 94%;
 }
 
 .calc-btn {
   border: 0;
-  padding: 30px 40px;
-  background-color: white;
-}
-
-.calc-btn:hover {
-  background-color: black;
+  padding: 32px 42px;
+  background-color: var(--brown-bg-color);
+  font-size: 21px;
   color: white;
+  font-family: 'Yantramanav', sans-serif;
 }
 
-.buttons {
+.buttons-div {
   display: grid;
   grid-template-areas: 
     "clear div   mul   bkspce"
     "seven eight nine  sub"
     "four  five  six   add"
     "one   two   three equals"
-    "zero  zero  dot   equals";                     
+    "zero  zero  dot   equals";
 }
 
 .equals {
  grid-area: equals;
- background-color: #FE7F57;
+ background-color: var(--orange-accent-color);
  border-bottom-right-radius: var(--calc-border-radious);
+ color: black;
 }
 
 .zero {
   grid-area: zero;
   border-bottom-left-radius: var(--calc-border-radious);
+}
+
+.calc-btn:hover {
+  background-color: rgba(25, 25, 25, 0.9);
+  color: white;
+}
+
+.equals:hover {
+  background-color: var(--orange-accent-color);
+  color: black;
 }

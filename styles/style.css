@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --calc-border-radious: 10px;
+}
+
+body {
+  background-color: lightgray;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#calculator {
+  background-color: #fff;
+  height: auto;
+  border-radius: var(--calc-border-radious);
+}
+
+.display {
+  text-align: end;
+  padding: 40px 10px;
+}
+
+.calc-btn {
+  border: 0;
+  padding: 30px 40px;
+  background-color: white;
+}
+
+.calc-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.buttons {
+  display: grid;
+  grid-template-areas: 
+    "clear div   mul   bkspce"
+    "seven eight nine  sub"
+    "four  five  six   add"
+    "one   two   three equals"
+    "zero  zero  dot   equals";                     
+}
+
+.equals {
+ grid-area: equals;
+ background-color: #FE7F57;
+ border-bottom-right-radius: var(--calc-border-radious);
+}
+
+.zero {
+  grid-area: zero;
+  border-bottom-left-radius: var(--calc-border-radious);
+}

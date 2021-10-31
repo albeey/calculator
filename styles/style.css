@@ -1,11 +1,10 @@
 * {
   margin: 0;
-  padding: 0;
 }
 
 :root {
   --calc-border-radious: 10px;
-  --orange-accent-color: #FE7F57;
+  --orange-accent-color: rgba(248, 100, 55, 0.945);
   --brown-bg-color: rgba(25, 25, 25, 1);
 }
 
@@ -88,4 +87,5 @@ hr {
 .equals:hover {
   background-color: var(--orange-accent-color);
   color: black;
+  background-color: rgba(254, 127, 87, 1);
 }

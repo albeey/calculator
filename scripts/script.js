@@ -18,24 +18,29 @@ function operate(operator, num1, num2) {
   }
 }
 
+// Variables
+let displayValue = "0";
+let previousVal;
+let operator;
+
+
+// Add numbers to screen
 const screen = document.querySelector(".display");
 const digits = document.querySelectorAll(".digit");
-let displayValue = "0";
 
-// Event listener for the digit buttons
 digits.forEach(digit => {
-  digit.addEventListener("click", updateDisplay);
-})
+  digit.addEventListener("click", addDigit);
+});
 
-function updateDisplay() {
+function addDigit() {
   const digit = this.textContent;
-  if (screen.textContent === "0") screen.textContent = "";
+  if (displayValue === "0") screen.textContent = "";
   displayValue = screen.textContent += digit;
 }
 
-// Decimal separator
+// Add decimal separator
 const decimalBttn = document.querySelector(".decimal");
-decimalBttn.addEventListener("click", addDecimalSeparator)
+decimalBttn.addEventListener("click", addDecimalSeparator);
 
 function addDecimalSeparator() {
   let decimal = this.textContent;
@@ -43,7 +48,7 @@ function addDecimalSeparator() {
   displayValue = screen.textContent += decimal;
 }
 
-// Backspace
+// Delete last element in screen
 const backspaceBttn = document.querySelector(".backspace");
 backspaceBttn.addEventListener("click", deleteLastDigit);
 
@@ -51,8 +56,40 @@ function deleteLastDigit() {
   const currentVal = screen.textContent;
   let newVal = currentVal.slice(0, -1);
 
-  if (newVal === "") newVal = "0";
+  if (!newVal) newVal = "0";
 
   screen.textContent = newVal;
   displayValue = newVal;
+}
+
+// Operators
+const operators = document.querySelectorAll(".operator");
+
+operators.forEach(operator => {
+  operator.addEventListener("click", selectOperation)
+})
+
+function selectOperation() {
+  const chosenOperator = this.value;
+
+  operator = chosenOperator;
+  previousVal = displayValue;
+  displayValue = "0";
+}
+
+// Result
+const equalsBttn = document.querySelector(".equals");
+
+equalsBttn.addEventListener("click", getResult);
+
+function getResult() {
+  if (!operator) return;
+
+  const result = operate(operator, +previousVal, +displayValue);
+
+  screen.textContent = result;
+  
+  previousVal = result;
+  displayValue = "0";
+  operator = "";
 }

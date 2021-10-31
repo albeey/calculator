@@ -57,7 +57,7 @@ hr {
   font-family: 'Yantramanav', sans-serif;
 }
 
-.buttons-div {
+.buttons {
   display: grid;
   grid-template-areas: 
     "clear div   mul   bkspce"

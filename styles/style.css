@@ -79,6 +79,10 @@ hr {
   border-bottom-left-radius: var(--calc-border-radious);
 }
 
+.operator, .equals, .decimal {
+  font-weight: bold;
+}
+
 .calc-btn:hover {
   background-color: rgba(25, 25, 25, 0.9);
   color: white;

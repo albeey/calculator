@@ -23,7 +23,6 @@ let displayValue = "0";
 let previousVal;
 let operator;
 
-
 // Add numbers to screen
 const screen = document.querySelector(".display");
 const digits = document.querySelectorAll(".digit");
@@ -72,6 +71,8 @@ operators.forEach(operator => {
 function selectOperation() {
   const chosenOperator = this.value;
 
+  if (operator) getResult(); // if an operator has already been chosen perfrom that operation first
+
   operator = chosenOperator;
   previousVal = displayValue;
   displayValue = "0";
@@ -88,8 +89,19 @@ function getResult() {
   const result = operate(operator, +previousVal, +displayValue);
 
   screen.textContent = result;
-  
   previousVal = result;
+  displayValue = result;
+  operator = "";
+} 
+
+// Clear
+const clearBttn = document.querySelector(".clear");
+
+clearBttn.addEventListener("click", resetCalculator);
+
+function resetCalculator() {
+  screen.textContent = "0";
+  previousVal ="";
   displayValue = "0";
   operator = "";
 }

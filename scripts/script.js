@@ -44,6 +44,9 @@ decimalBttn.addEventListener("click", addDecimalSeparator);
 function addDecimalSeparator() {
   let decimal = this.textContent;
   if (displayValue.includes(".")) decimal = "";
+
+  if (operator && displayValue === "0") screen.textContent = "0";
+
   displayValue = screen.textContent += decimal;
 }
 

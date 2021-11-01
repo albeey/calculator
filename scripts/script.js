@@ -86,13 +86,28 @@ equalsBttn.addEventListener("click", getResult);
 function getResult() {
   if (!operator) return;
 
-  const result = operate(operator, +previousVal, +displayValue);
+  if (operator === "/" && displayValue === "0") return divideByZero();
+
+  let result = operate(operator, +previousVal, +displayValue);
+
+  if (result.toString().length > 14 && result.toString().includes(".")) {
+    result = result.toFixed(2)
+  }
 
   screen.textContent = result;
   previousVal = result;
   displayValue = result;
   operator = "";
 } 
+
+function divideByZero() {
+  screen.textContent = "";
+  const container = document.createElement("p");
+  container.classList.add("rotate");
+  container.textContent = "lol no";
+  screen.appendChild(container);
+  setTimeout(() => {  resetCalculator() }, 2500);
+}
 
 // Clear
 const clearBttn = document.querySelector(".clear");

@@ -44,9 +44,7 @@ decimalBttn.addEventListener("click", addDecimalSeparator);
 function addDecimalSeparator() {
   let decimal = this.textContent;
   if (displayValue.includes(".")) decimal = "";
-
   if (operator && displayValue === "0") screen.textContent = "0";
-
   displayValue = screen.textContent += decimal;
 }
 
@@ -122,4 +120,32 @@ function resetCalculator() {
   previousVal ="";
   displayValue = "0";
   operator = "";
+}
+
+// Button animation
+const buttons = document.querySelectorAll("button");
+
+// event listeners
+buttons.forEach(button => {
+  button.addEventListener("mouseenter", hoverOn);
+  button.addEventListener("mouseleave", hoverOff);
+  button.addEventListener("click", buttonClick);
+})
+
+function hoverOn() {
+  this.classList.contains("equals") ? this.classList.add("equals-hover") : this.classList.add("calc-btn-hover");
+}
+
+function hoverOff() {
+  this.classList.contains("equals") ? this.classList.remove("equals-hover") : this.classList.remove("calc-btn-hover");
+}
+
+function buttonClick(e) {
+  const pressClass = this.classList.contains("equals") ? "equals-press" : "button-press";
+
+  this.classList.add(pressClass)
+  
+  setTimeout(() => {
+    this.classList.remove(pressClass)
+  }, 500)
 }
